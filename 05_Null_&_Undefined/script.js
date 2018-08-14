@@ -8,6 +8,7 @@ var temp,
 function greet(name){
     return "Hello " + name;
 }
+function greet_2(name){}
 
 console.log(temp);              // undefined
 console.log(obj.property);      // undefined
@@ -15,3 +16,4 @@ console.log(a[4]);              // undefined
 
 console.log(greet("Allo"));     // Hello Allo
 console.log(greet());           // Hello undefined
+console.log(greet_2(33));       // undefined
