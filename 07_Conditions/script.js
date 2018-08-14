@@ -39,3 +39,11 @@ switch(name){
 }
 
 console.log(homecity);          // LA   
+
+console.log("------------------------------------------------");
+
+var x = 15,
+    text;
+
+text = x > 10 ? "x is much than ten" : "x is less or equal to ten";         
+text = x > 10 ? "x is much than ten" : x < 10 ? "x is less than ten" : "x is equal to ten";      
