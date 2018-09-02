@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+        // JSON - JavaScript Object Notation
+       
+        // stringify
+        {
+            var bill = {name: "Bill", age: 27};
+            console.log(bill);                      // Objectage: 27name: "Bill"__proto__: Object
+            console.log(JSON.stringify(bill));      // {"name":"Bill","age":27}
+            
+            var john = {
+                name: "John",
+                age: 21,
+                birthday:{
+                    year: 1998,
+                    month: "jule",
+                    day: 11
+                }
+            };
+            // inner object is contained
+            console.log(JSON.stringify(john));      // {"name":"John","age":21,"birthday":{"year":1998,"month":"jule","day":11}}
+            
+           var ann = {
+               name: "Ann",
+               age: 18,
+               sayHi: function(){
+                   console.log("Hi, my name is", this.name);
+               }
+           };
+           // inner functions aren't contained
+           console.log(JSON.stringify(ann));        // {"name":"Ann","age":18}
+        }
+       
+        // parse
+        {
+            var alexStr = '{"name":"Alex","age":23,"birthday":{"year":1996,"month":"december","day":3}}',
+                alexObj = JSON.parse(alexStr);          
+            console.log(alexObj);                   // {name: "Alex", age: 23, birthday: {year: 1996, month: "december", day: 3}}
+        }
+        
+        // document.write
+        {
+            document.write(alexObj);                            // [object Object]
+            document.write("<br>" + alexObj.name);              // Alex
+            document.write("<br>" + alexObj.birthday.month);    // december
+        }   
+    </script>
+    
+</body>
+</html>
