@@ -1,0 +1,29 @@
+{
+    "players":
+    [
+        {
+            "lastname": "Jonson",
+            "firstname": "John",
+            "team": "Futures",
+            "citizen": "UK"
+        },
+        {
+            "lastname": "Annset",
+            "firstname": "Ann",
+            "team": "Futures",
+            "citizen": "US"
+        },
+        {
+            "lastname": "Ginky",
+            "firstname": "Lo",
+            "team": "Futures",
+            "citizen": "China"
+        },
+        {
+            "lastname": "Abset",
+            "firstname": "O'net",
+            "team": "Futures",
+            "citizen": "UK"
+        }
+    ]
+}
