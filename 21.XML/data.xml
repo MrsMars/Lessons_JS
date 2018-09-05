@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- author's tags(like html) -->
+<books>
+    <book>
+        <name>Walking Shadows (Peter Decker and Rina Lazarus Series #25)</name>
+        <category>History</category>
+        <author birthday="06/06/1979">Fill Spance</author>
+    </book>
+    <book>
+        <name>Girl, Wash Your Face: Stop Believing the Lies About Who You Are So You Can Become Who You Were Meant to Be</name>
+        <category>Romance</category>
+        <author>Rachel Hollis</author>
+    </book>
+    <book>
+        <name>Juror #3</name>
+        <category>Comics & Graphic Novels</category>
+        <author>James Patterson, Nancy Allen (With)</author>
+    </book>
+</books>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // XML - Extend Markup Language
+        
+        var xmlStr = '<?xml version="1.0" encoding="UTF-8"?><book><name>Walking Shadows (Peter Decker and Rina Lazarus Series #25)</name><category>History</category><author birthday="06/06/1979">Fill Spance</author></book></books>';
+        console.log(xmlStr);           // <?xml version="1.0" encoding="UTF-8"?><book><name>Walking Shadows (Peter Decker and Rina Lazarus Series #25)</name><category>History</category><author birthday="06/06/1979">Fill Spance</author></book></books>
+        console.log(typeof xmlStr);    // string
+        
+        // parse
+        var parser = new DOMParser();
+        xmlDoc = parser.parseFromString(xmlStr, "text/xml");
+        console.log(xmlDoc);            // #document > ...
+        console.log(typeof xmlDoc);     // object
+        
+        console.log(xmlDoc.getElementsByTagName("name")[0].childNodes[0]);              // Walking Shadows (Peter Decker and Rina Lazarus Series #25)   - obj
+        console.log(xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue);    // Walking Shadows (Peter Decker and Rina Lazarus Series #25)   - str   
+    </script>
+    
+</body>
+</html>
