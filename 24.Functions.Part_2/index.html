@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document_24</title>
+</head>
+<body>
+    <script>
+        
+        function display_one(){
+            document.write("This is first JS function");
+        }
+        display_one();
+        
+        var display_two = function(){
+            document.write("</br>This is second JS function");
+        }
+        display_two();
+        
+        document.write("</br>");    ///////////////////////////////////////////
+        
+        function goodMorning(){
+            document.write("</br>Good morning!");
+        }
+        function goodEvening(){
+            document.write("</br>Good evening!");
+        }
+        
+        var message = goodMorning;
+        message();                  // Good morning!
+        message = goodEvening;
+        message();                  // Good evening!
+        
+        document.write("</br>");    ///////////////////////////////////////////
+        
+        function display(x){
+            var z = x * x;
+            document.write(x + " * " + x + " = " + z);
+        }
+        display(5);                 // 5 * 5 = 25
+        
+        document.write("</br>");    ///////////////////////////////////////////
+        
+        function sum(a, b, c){
+            let d = a + b + c;
+            console.log(d);
+        }
+        sum(1, 2, 3);               // 6
+        let nums = [4, 5, 6];
+        sum(...nums);               // 15
+        
+        ////////////////////////////////////////////////////////////////////////
+        
+        function notNecessaryParams_1(x, y){
+            
+            if(x == undefined) x = 5;
+            if(y == undefined) y = 8;
+            
+            let z = x * y;
+            console.log(z);
+        }
+        notNecessaryParams_1();       // 40
+        notNecessaryParams_1(6);      // 48
+        notNecessaryParams_1(6, 4);   // 24
+        
+        function notNecessaryParams_2(x = 5, y = 8){
+            let z = x * y;
+            console.log(z);
+        }
+        notNecessaryParams_2();         // 40
+        notNecessaryParams_2(6);        // 48
+        notNecessaryParams_2(6, 4);     // 24
+        
+        ////////////////////////////////////////////////////////////////////////
+        
+        function displayArguments(){
+            var z = 1;
+            for(var i = 0; i < arguments.length; i++)
+                z *= arguments[i];
+            console.log(z);
+        }
+        displayArguments(6);            // 6    
+        displayArguments(6, 4);         // 24  
+        displayArguments(6, 4, 5);      // 120    
+        
+        ////////////////////////////////////////////////////////////////////////
+        
+        function displayManyParams(season, ...temps){
+            console.log(season);
+            for(index in temps){
+                console.log(temps[index]);
+            }
+        }
+        displayManyParams("Spring", -2, -3, 4, 2, 5);       // Spring, -2, -3, 4, 2, 5
+        displayManyParams("Summer", 20, 23, 31);            // Summer, 20, 23, 31
+        
+        ////////////////////////////////////////////////////////////////////////
+        
+        var y = 7,
+            z = square(y);                                  
+        
+        document.write(y + " * " + y + " = " + z);          // 7 * 7 = 49
+        
+        function square(x){
+            return x * x;
+        }
+        
+        ////////////////////////////////////////////////////////////////////////
+        
+        function parSum(x, y){return x + y;}
+        function parSub(x, y){return x - y;}
+        function parOper(x, y, func){console.log(func(x, y));}
+        
+        parOper(10, 6, parSum);        // 16
+        parOper(10, 6, parSub);        // 4
+        
+        ////////////////////////////////////////////////////////////////////////
+        
+        function menu(n){
+            
+            if(n == 1) return function(x, y){return x + y;}
+            else if(n == 2) return function(x, y){return x - y;}
+            else if(n == 3) return function(x, y){return x * y;}
+            else if(n == 4) return function(x, y){return x / y;}
+            else return undefined;
+        }
+        
+        for(var i = 1; i < 5; i++){
+            var action = menu(i);
+            if(action !== undefined){
+                var result = action(5, 4);
+                console.log(result);            
+                                        /*
+                                            9
+                                            1
+                                            20
+                                            1.25
+                                        */
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>
