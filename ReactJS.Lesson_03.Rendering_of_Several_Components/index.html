@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+   
+    <div id="example"></div>
+    
+    <script type="text/babel">
+    
+        class Block_1 extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <h2>Hello №1</h2>
+                        <p>Just a text</p>
+                    </div>
+                );
+            }
+        };
+
+        
+        class Block_2 extends React.Component{
+            const = 2;
+            render(){
+                return (
+                    <div>
+                        <h2>Hello #{this.const}</h2>
+                        <p>Just a text</p>
+                        <p>2 * 13 = {2 * 13} </p>    // 2 * 13 = 26
+                    </div>
+                );
+            }
+        };
+
+
+        const place = document.getElementById("example");
+
+        ReactDOM.render 
+        (
+            <div>
+                <Block_1 />
+                <Block_2 />                
+                <Block_1 />                
+            </div>,
+            place
+        );       
+    
+    </script>    
+    
+</body>
+</html>
