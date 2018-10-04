@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Les 07</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <div id="program"></div>
+    
+    
+    <script type="text/babel">
+
+        class Task extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {edit: false,};
+            };
+            edit = () => {
+                this.setState({edit: true});
+            };
+            remove = () => {
+                alert ("Button 'Remove' was pressed");
+            };
+            save = () => {
+                this.setState({edit: false})
+            };
+            rendNorm = () => {
+                return (
+                    <div className="box">
+                        <div className="text">{this.props.children}</div>
+                        <button onClick={this.edit} className="btn light">Edit</button>
+                        <button onClick={this.remove} className="btn red">Remove</button>
+                    </div>
+                );
+            };
+            rendEdit = () => {
+                return(
+                    <div className="box">
+                        <textarea defaultValue={this.props.children}></textarea>
+                        <button onClick={this.save} className="btn succes">Save</button>
+                    </div>
+                );
+            };
+            render(){
+                if(this.state.edit){
+                    return this.rendEdit();
+                }
+                else{
+                    return this.rendNorm();
+                }
+            }
+        };
+        const app = document.getElementById("program");
+
+        ReactDOM.render(
+            <div className="field">
+                <Task>Hey, it's my first task!</Task>
+                <Task>Hello, i'm number two</Task>
+                <Task>I'm third, man</Task>
+                <Task></Task>
+            </div>, 
+            app
+        );
+    </script>
+        
+</body>
+</html>
