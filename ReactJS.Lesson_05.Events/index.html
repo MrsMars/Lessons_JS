@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Les 06</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <div id="program"></div>
+    
+    
+    <script type="text/babel">
+
+        class Check extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {checked: true,};
+            };
+            handleCheck = () => {
+                this.setState({checked: !this.state.checked});
+            };
+            render(){
+                var message;
+                if(this.state.checked){
+                    message = 'chosen';
+                }
+                else{
+                    message = "wasn't chosen";
+                }
+                return(
+                    <div>
+                        <input type="checkbox" onChange={this.handleCheck} default={this.state.checked}/>
+                        <p>Checkbox {message}</p>
+                    </div>
+                );
+            }
+        };
+
+
+        const app = document.getElementById("program");
+
+        ReactDOM.render(
+            <Check />, 
+            app
+        );
+    </script>
+        
+</body>
+</html>
