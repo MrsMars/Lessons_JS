@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Les 05</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <div id="program"></div>
+    
+    
+    <script type="text/babel">
+
+        class Task extends React.Component{
+            edit(){
+                alert ("Нажата кнопка Edit");
+            }
+            remove(){
+                alert ("Нажата кнопка Remove");
+            }
+            render(){
+                return(
+                    <div className="box">
+                        <div className="text">{this.props.children}</div>
+                        <button onClick={this.edit} className="btn light">Edit</button>
+                        <button onClick={this.remove} className="btn red">Remove</button>
+                    </div>
+                );
+            }
+        };
+
+
+        const app = document.getElementById("program");
+
+        ReactDOM.render(
+            <div className="field">
+                <Task>Hey, it's my first task!</Task>
+                <Task>Hello, i'm number two</Task>
+                <Task>I'm third, man</Task>
+                <Task></Task>
+            </div>, 
+            app
+        );
+    </script>
+        
+</body>
+</html>
