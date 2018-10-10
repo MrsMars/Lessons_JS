@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Les 09</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <div id="program"></div>
+    
+    
+    <script type="text/babel">
+
+        class Task extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {edit: false,};
+            };
+            edit = () => {
+                this.setState({edit: true});
+            };
+            remove = () => {
+                alert ("Button 'Remove' was pressed");
+            };
+            save = () => {
+                var value = this.refs.newTxt.value;
+                alert(value);
+                this.setState({edit: false})
+            };
+            rendNorm = () => {
+                return (
+                    <div className="box">
+                        <div className="text">{this.props.children}</div>
+                        <button onClick={this.edit} className="btn light">Edit</button>
+                        <button onClick={this.remove} className="btn red">Remove</button>
+                    </div>
+                );
+            };
+            rendEdit = () => {
+                return(
+                    <div className="box">
+                        <textarea ref="newTxt" defaultValue={this.props.children}></textarea>
+                        <button onClick={this.save} className="btn succes">Save</button>
+                    </div>
+                );
+            };
+            render(){
+                if(this.state.edit){
+                    return this.rendEdit();
+                }
+                else{
+                    return this.rendNorm();
+                }
+            }
+        };
+
+        class Field extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    tasks: [
+                        'Task number 1',
+                        'Task number 2',
+                        'Task number 3'
+                    ]
+                };
+            };
+            render(){
+                return(
+                    <div className="field">
+                        {
+                            this.state.tasks.map(function(item, i){
+                                return (<Task key={i}>{item}</Task>);
+                            })
+                        }
+                    </div>
+                );
+            }
+        }
+
+        const app = document.getElementById("program");
+
+        ReactDOM.render(<Field />, app);
+    </script>
+        
+</body>
+</html>
